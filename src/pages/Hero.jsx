@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import ParticlesJs from "../components/ParticlesJs";
 import Nav from "../components/Nav";
-import { GithubIcon, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -68,7 +67,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen border-8 border-[#FAF9F6] rounded-[40px] overflow-hidden">
+    <div className="relative w-screen h-screen " id="home">
       {/* Preloader */}
       {loading && (
         <div

@@ -4,11 +4,12 @@ import StaggeredMenu from './StaggeredMenu';
 const Nav = () => {
 
     const menuItems = [
-        { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-        { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-        { label: 'Services', ariaLabel: 'View our services', link: '/services' },
-        { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+        { label: 'Home', ariaLabel: 'Go to home page', link: '#home' },
+        { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
+        { label: 'Project', ariaLabel: 'View our services', link: '#project' },
+        { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
     ];
+
 
     const socialItems = [
         { label: 'GitHub', link: 'https://github.com/jeganxthan' },

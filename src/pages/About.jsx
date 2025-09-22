@@ -32,6 +32,9 @@ const About = () => {
     { src: "/skills/tailwind.svg", alt: "TailwindCSS" },
     { src: "/skills/ts.svg", alt: "TypeScript" },
     { src: "/skills/vite.png", alt: "Vite" },
+    { src: "/skills/selenium.svg", alt: "selenium" },
+    { src: "/skills/websocket.svg", alt: "websocket" },
+    { src: "/skills/android.svg", alt: "android" },
   ];
 
   useEffect(() => {
@@ -55,13 +58,11 @@ const About = () => {
       );
     }, sectionRef);
 
-    return () => ctx.revert(); // cleanup on unmount
+    return () => ctx.revert(); 
   }, []);
 
   return (
-    <div className="px-6 py-12 md:px-12 md:py-16">
-
-      {/* About Section with GSAP */}
+    <div className="px-6 py-12 md:px-12 md:py-16" id="about">
       <div
         ref={sectionRef}
         className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-18 mt-12"
@@ -111,7 +112,7 @@ const About = () => {
         Skills
       </h1>
       <div
-        className="mt-12 md:mt-16"
+        className="mt-12 md:mt-16 mb-[-100px]"
         style={{
           height: "200px",
           position: "relative",
@@ -123,7 +124,7 @@ const About = () => {
           logos={imageLogos}
           speed={100}
           direction="left"
-          logoHeight={60}
+          logoHeight={74}
           gap={80}
           pauseOnHover
           scaleOnHover
@@ -131,40 +132,7 @@ const About = () => {
           ariaLabel="Technology partners"
         />
       </div>
-      <div className="max-w-4xl mx-auto bg-black dark:bg-gray-800 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-arimo font-bold text-center text-white mb-6 sm:mb-8 md:mb-10">
-          Experience
-        </h1>
-
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-          <img
-            src="/ignite.png"
-            alt="Ignite Skylabs"
-            className="w-32 sm:w-36 md:w-40 rounded-lg shadow-md object-contain"
-          />
-
-          {/* Info */}
-          <div className="text-center md:text-left space-y-2">
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-400">
-              Ignite Skylabs
-            </p>
-            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-300">
-              Software Development Internship
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-              Role: Full Stack Developer <br />
-              Location: Pondicherry, India <br />
-              Type: Onsite Internship
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 mt-2 md:mt-4">
-              Worked on exciting projects, contributing to web development and
-              innovative solutions.
-            </p>
-            <a href="https://ridemap.in/" className="text-violet-600">Vist the website</a>
-          </div>
-        </div>
-      </div>
-
+      
     </div>
   );
 };

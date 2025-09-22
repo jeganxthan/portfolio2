@@ -138,6 +138,7 @@ html, body {
   overflow-y: hidden;      /* Hide vertical scroll */
   overflow: hidden;
   height: 100%;             /* Ensure the body takes full height */
+  scroll-behavior: smooth;
 }
 
 body {

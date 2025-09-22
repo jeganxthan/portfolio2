@@ -79,7 +79,8 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white py-16 px-4 sm:px-6 md:px-12 border-14  border-[#FAF9F6] rounded-[40px] overflow-hidden">
+    <div id="project">
+    <div className="bg-black text-white py-16 px-4 sm:px-6 md:px-12 border-14 mt-10 mb-10 border-[#FAF9F6] rounded-[40px] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-arimo font-bold text-left mb-8 sm:mb-10 md:mb-12">
           Projects
@@ -321,8 +322,10 @@ const Projects = () => {
           </div>
         </div>
       )}
-
+      
     </div>
+    </div>
+
   );
 };
 
