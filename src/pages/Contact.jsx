@@ -10,7 +10,7 @@ const Page = () => {
         setStatus("Sending...");
 
         try {
-            const res = await fetch("https://portfolio-next-ten-theta.vercel.app/api/contact", {
+            const res = await fetch("https://portfolio-next-viud.vercel.app/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
