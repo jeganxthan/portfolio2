@@ -139,6 +139,7 @@ html, body {
   overflow: hidden;
   height: 100%;             /* Ensure the body takes full height */
   scroll-behavior: smooth;
+  background-color: #FAF9F6;
 }
 
 body {

@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-10 relative mt-4">
+    <footer className="bg-black text-white py-16 px-4 sm:px-6 md:px-12 border-10 border-[#FAF9F6] rounded-[40px] overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
         {/* About Section */}
         <div>

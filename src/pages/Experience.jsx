@@ -1,4 +1,5 @@
 "use client";
+
 import { Globe } from "lucide-react";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -10,42 +11,46 @@ const Experience = () => {
   const cardRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(cardRef.current, {
-        y: 100,
-        opacity: 0,
+    const element = cardRef.current;
+
+    // Basic animation when card comes into view
+    gsap.fromTo(
+      element,
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
         duration: 1.2,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: cardRef.current,
+          trigger: element,
           start: "top 80%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
+          end: "top 40%",
+          toggleActions: "play none none none",
         },
-      });
-    }, cardRef);
+      }
+    );
 
     return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 
   return (
     <div className="mt-10 mb-10">
-      <h1 className="text-xl sm:text-3xl md:text-1xl font-arimo uppercase text-center">
+      <h1 className="text-xl sm:text-3xl font-arimo uppercase text-center">
         Experience
       </h1>
 
       <div
         ref={cardRef}
-        className="bg-white mt-16 p-4 md:p-8 rounded-lg shadow-2xl md:max-w-lg mx-auto"
+        className="bg-white mt-16 p-4 md:p-8 rounded-lg shadow-2xl md:max-w-lg mx-auto transform-gpu"
       >
         <div className="flex items-center mb-6">
           <img
             src="/ignite.png"
             alt="Ignite Skylabs"
-            className="w-20 h-25 rounded-full mr-6"
+            className="w-15 h-18 rounded-full mr-6 object-cover"
           />
           <p className="text-2xl text-black font-medium">Ignite Skylabs</p>
         </div>
@@ -56,7 +61,7 @@ const Experience = () => {
         </p>
 
         <div className="flex items-center space-x-4 mb-6">
-          <a href="#" className="text-black hover:text-blue-500">
+          <a href="https://www.igniteskylabs.in/"  target="_blank" className="text-black hover:text-blue-500">
             <Globe size={32} />
           </a>
           <p className="text-base text-gray-600">

@@ -51,14 +51,14 @@ const About = () => {
             trigger: sectionRef.current,
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
           stagger: 0.3,
         }
       );
     }, sectionRef);
 
-    return () => ctx.revert(); 
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -74,11 +74,11 @@ const About = () => {
           <p className="text-lg text-gray-600 mb-4">
             I’m a Full Stack Developer with strong expertise in the MERN stack.
             I’m passionate about building scalable web applications and
-            delivering efficient solutions. Alongside full-stack development, I’m
-            sharpening my backend skills with Python, while also diving into
+            delivering efficient solutions. Alongside full-stack development,
+            I’m sharpening my backend skills with Python, while also diving into
             automation and learning how to optimize processes. I constantly work
-            on improving my skills and staying up to date with modern development
-            practices to become a well-rounded software engineer.
+            on improving my skills and staying up to date with modern
+            development practices to become a well-rounded software engineer.
           </p>
           <div className="mt-6 w-full flex justify-center">
             <a
@@ -132,7 +132,6 @@ const About = () => {
           ariaLabel="Technology partners"
         />
       </div>
-      
     </div>
   );
 };

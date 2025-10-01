@@ -8,8 +8,8 @@ import Nav from "../components/Nav";
 gsap.registerPlugin(TextPlugin);
 
 const titles = [
-  "Backend Developer",
   "Web Developer",
+  "Backend Developer",
   "Automation",
   "Software Developer",
   "Frontend Developer",
@@ -72,7 +72,7 @@ const Hero = () => {
       {loading && (
         <div
           ref={preloaderRef}
-          className="absolute top-0 left-0 w-full h-full bg-cyan-500 z-50"
+          className="absolute top-0 left-0 w-full h-full bg-gray-300 z-50"
         />
       )}
 
