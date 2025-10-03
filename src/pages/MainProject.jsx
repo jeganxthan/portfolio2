@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 const projects = [
   {
     title: "Food Ordering App",
-    image: "/food/food.png",
+    image: "/frontend/food.png",
     description:
       "Food Ordering App using dummy JSON data, where users can browse menus, add items to the cart, and place orders. The project simulates a real-world food delivery platform, demonstrating ability to work with APIs, manage state, and build interactive user interfaces.",
     techStack: [
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "Netflix Clone",
-    image: "/netflix/netflix.png",
+    image: "/frontend/netflix.png",
     description:
       "Netflix clone using React and Tailwind CSS, featuring a fully responsive design that adapts seamlessly to desktops, tablets, and mobile devices. The project replicates Netflix’s modern UI with dynamic layouts, smooth styling, and a user-friendly interface, showcasing your skills in frontend development and responsive web design.",
     techStack: [
@@ -32,7 +32,7 @@ const projects = [
   },
   {
     title: "Portfolio Website",
-    image: "/portfolio/portfolio.png",
+    image: "/frontend/portfolio.png",
     description:
       "This portfolio website showcases my projects and skills with heavy GSAP animations and interactive video elements for a dynamic user experience. It includes a fully functional contact form using NodeMailer to send emails directly from the site. Built with React.js and Tailwind CSS, the portfolio demonstrates smooth scroll effects, hover animations, and responsive design, combining modern UI/UX with real-world functionality.",
     techStack: [
@@ -47,7 +47,7 @@ const projects = [
   },
   {
     title: "Git-SH",
-    image: "/git-sh/gitsh.png",
+    image: "/fullstack/gitsh.png",
     description:
       "MERN stack web application that combines multiple advanced features into one platform. The system includes secure authentication with OTP verification, ensuring that only verified users can access the app. It also supports a followers/following system, allowing users to connect with each other like a social network. For real-time communication, you integrated Socket.IO-based chat, enabling instant messaging between users. Additionally, you implemented WebRTC for video/audio calls, giving users the ability to connect beyond text chat. Altogether, this project demonstrates your skills in building secure, scalable, and interactive real-time web applications.",
     techStack: [
@@ -61,7 +61,7 @@ const projects = [
   },
   {
     title: "RBAC-Ecommerce",
-    image: "/rbac/rbac.png",
+    image: "/fullstack/rbac.png",
     description:
       "MERN e-commerce website, role-based access control ensures that each type of user has specific permissions. Admins have full authority to manage the platform, including handling users, products, and orders. Sellers are restricted to managing only their own products and viewing orders related to them, giving them control over their shop but not the entire system. Users (customers) have the ability to browse products, add them to the cart, place orders, and manage their personal accounts. This separation of roles maintains security, prevents unauthorized actions, and ensures smooth operation of the platform.",
     techStack: [
@@ -77,7 +77,7 @@ const projects = [
   },
   {
     title: "canvas",
-    image: "/canvas/canvas.png",
+    image: "/fullstack/canvas.png",
     description:
       "This project is a real-time collaborative drawing board built with React, TailwindCSS, Socket.IO, Express, and MongoDB. Users can draw on a shared canvas with customizable tools like pencil, eraser, color picker, brush size, undo/redo, and clear options. Every stroke is broadcasted instantly to all connected users via WebSockets, ensuring a smooth, synchronized experience. Drawings are also stored in MongoDB, so when a new user joins, they can see the existing canvas history. This makes the app useful for brainstorming, sketching ideas, online classrooms, or collaborative design sessions.",
     techStack: [
@@ -92,7 +92,7 @@ const projects = [
   },
   {
     title: "LoadBalance",
-    image: "/loadbalance/Load.png",
+    image: "/backend/Load.png",
     description:
       "This project is a real-time WebSocket communication system with Redis Pub/Sub and Nginx load balancing. It allows multiple clients to send and receive messages instantly, even when connected to different servers. When a client sends a message, the WebSocket server publishes it to Redis, which then distributes it to all other subscribed WebSocket servers. Each server broadcasts the message to its connected clients, ensuring that all users stay in sync. Nginx acts as a load balancer to distribute client connections across multiple WebSocket servers, enabling horizontal scalability and preventing a single server from being overloaded. This architecture makes the system fault-tolerant, scalable, and efficient for building real-time applications like chat apps, notifications, or collaborative tools.",
     techStack: [
@@ -103,6 +103,19 @@ const projects = [
       { name: "Socket IO", img: "/skills/socket.svg" },
     ],
     github: "https://github.com/jeganxthan/Loadbalance",
+    category: "Backend And Automation",
+  },
+  {
+    title: "Resume Bot",
+    image: "/backend/resume.png",
+    description:
+      "I developed a Resume Bot web application using Flask, designed to simplify resume management and enhance job application efficiency. The platform allows users to upload resumes in multiple formats (PDF, DOCX, TXT) and automatically parses them to extract critical details such as personal information, contact details, education, skills, work experience, and certifications. Leveraging the Google Gemini API, the system delivers AI-powered interactive Q&A, enabling users to query their resumes dynamically. The application implements JWT-based authentication for secure access and email verification with Flask-Mail to ensure account authenticity. All data is stored securely using PostgreSQL and managed through SQLAlchemy ORM. Real-time communication is supported via Flask-SocketIO with Eventlet, enabling live private messaging between users. The system also features a responsive, clean UI and optimized backend performance for fast processing of resume uploads and queries. By combining AI-driven insights, secure authentication, real-time messaging, and efficient data parsing, this Resume Bot serves as a comprehensive career assistance tool for modern job seekers.",
+    techStack: [
+      { name: "Flask", img: "/skills/flask.svg" },
+      { name: "Socket IO", img: "/skills/socket.svg" },
+      { name: "PostgreSQL", img: "/skills/postgresql.svg" },
+    ],
+    github: "https://github.com/jeganxthan/resume_bot",
     category: "Backend And Automation",
   },
 ];
@@ -181,7 +194,7 @@ const MainProject = () => {
       <PlusLine />
 
       {/* Category Buttons */}
-      <div className="flex flex-row gap-3 justify-center items-center text-black mb-10">
+      <div className="flex flex-row gap-3 justify-center items-center text-black mb-10 text-xs md:text-base">
         {categories.map((category, idx) => (
           <button
             key={category}

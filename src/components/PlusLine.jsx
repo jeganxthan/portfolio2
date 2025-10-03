@@ -20,7 +20,7 @@ const PlusLine = () => {
           scrollTrigger: {
             trigger: lineRef.current, // animate when the line is in view
             start: "top 80%", // when top of element hits 80% of viewport
-            toggleActions: "play none none reverse", // play on enter, reverse on leave back
+            toggleActions: "play none none none", // play on enter, reverse on leave back
           },
         }
       );
