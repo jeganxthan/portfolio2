@@ -49,11 +49,21 @@ const Page = () => {
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
         <div
-          className="absolute rounded-full w-[600px] h-[500px] filter blur-[200px] opacity-40"
+          className="md:absolute md:flex hidden rounded-full w-[600px] h-[500px] filter blur-[200px] opacity-40"
           style={{
             background: "linear-gradient(to right, #00416a, #e4e5e6) ",
             right: "18%",
             top: "86%",
+            zIndex: -1,
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
+        <div
+          className="absolute flex md:hidden rounded-full w-[600px] h-[500px] filter blur-[200px] opacity-40"
+          style={{
+            background: "linear-gradient(to right, #00416a, #e4e5e6) ",
+            left: "38%",
+            top: "79%",
             zIndex: -1,
             transform: "translate(-50%, -50%)",
           }}

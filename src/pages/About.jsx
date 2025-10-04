@@ -72,7 +72,7 @@ const About = () => {
       >
         <div className="about-content flex flex-col max-w-full md:max-w-lg text-center md:text-left">
           <div
-            className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
+            className="md:absolute md:flex hidden rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
             style={{
               background: "linear-gradient(to right, #4776e6, #8e54e9)",
               zIndex: -1,

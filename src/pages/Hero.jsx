@@ -72,7 +72,7 @@ const Hero = () => {
       {loading && (
         <div
           ref={preloaderRef}
-          className="absolute top-0 left-0 w-full h-full bg-gray-300 z-50"
+          className="absolute top-0 left-0 w-full h-full bg-[#0a021b] z-50"
         />
       )}
       <div className="absolute top-0 left-0 w-full z-20">

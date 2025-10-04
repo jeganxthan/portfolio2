@@ -102,15 +102,15 @@ const Projects = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-arimo font-bold mb-8 sm:mb-10 md:mb-12 text-left uppercase bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
             Projects
           </h1>
-           <div
-        className="absolute rounded-full w-[500px] h-[500px] filter blur-[200px] opacity-40"
-        style={{
-          background: "linear-gradient(to right, #00416a, #e4e5e6)",
-          right: "55%",
-          top: "69%",
-          transform: "translate(-50%, -50%)",
-        }}
-      ></div>
+          <div
+            className="md:absolute md:flex hidden rounded-full w-[500px] h-[500px] filter blur-[200px] opacity-40"
+            style={{
+              background: "linear-gradient(to right, #00416a, #e4e5e6)",
+              right: "55%",
+              top: "69%",
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
           <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
             <div className="md:w-1/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar space-y-2 sm:space-y-3 md:space-y-4 md:flex flex-col hidden ">
               {projectTitles.map((title, index) => (
@@ -169,15 +169,15 @@ const Projects = () => {
               ))}
             </div>
           </div>
-           <div
-        className="absolute rounded-full w-[600px] h-[600px] filter blur-[200px] opacity-40"
-        style={{
-          background: "linear-gradient(to right, #4776e6, #8e54e9)",
-          left: "70%",
-          top: "70%",
-          transform: "translate(-50%, -50%)",
-        }}
-      ></div>
+          <div
+            className="md:absolute md:flex hidden rounded-full w-[600px] h-[600px] filter blur-[200px] opacity-40"
+            style={{
+              background: "linear-gradient(to right, #4776e6, #8e54e9)",
+              left: "70%",
+              top: "70%",
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
         </div>
 
         {/* Modal */}
@@ -219,15 +219,17 @@ const Projects = () => {
           </div>
         )}
 
-        <Link
-          to="/main-project"
-          className="flex flex-row gap-2 items-center group cursor-pointer"
-        >
-          <p>Show All</p>
-          <span className="transition-transform duration-200 group-hover:translate-x-1">
-            <ArrowRight size={20} />
-          </span>
-        </Link>
+        <div className="mt-10 md:mt-6 flex justify-start md:justify-start">
+          <Link
+            to="/main-project"
+            className="flex flex-row gap-2 items-center group cursor-pointer text-white hover:text-purple-400 transition-colors"
+          >
+            <p>Show All</p>
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              <ArrowRight size={20} />
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

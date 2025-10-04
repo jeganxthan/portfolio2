@@ -206,25 +206,24 @@ const MainProject = () => {
       <PlusLine />
 
       {/* Category Buttons */}
-     <div className="flex flex-row flex-wrap gap-3 justify-center items-center text-black mb-10 text-xs md:text-base">
-  {categories.map((category, idx) => (
-    <button
-      key={category}
-      ref={(el) => (buttonsRef.current[idx] = el)}
-      onClick={() => setActiveCategory(category)}
-      className={`px-6 py-2 md:py-3 rounded-xl font-semibold uppercase transition-all duration-300 shadow-md
+      <div className="flex flex-row flex-wrap gap-3 justify-center items-center text-black mb-10 text-xs md:text-base">
+        {categories.map((category, idx) => (
+          <button
+            key={category}
+            ref={(el) => (buttonsRef.current[idx] = el)}
+            onClick={() => setActiveCategory(category)}
+            className={`px-6 py-2 md:py-3 rounded-xl font-semibold uppercase transition-all duration-300 shadow-md
         ${
           activeCategory === category
             ? "text-white bg-gradient-to-r from-[#4776e6] to-[#8e54e9] shadow-lg scale-105"
             : "bg-gray-300 text-black hover:bg-gray-500 hover:text-white"
         }
       `}
-    >
-      {category}
-    </button>
-  ))}
-</div>
-
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
       {/* Project List */}
       <div className="max-w-9xl mx-auto">
@@ -243,20 +242,24 @@ const MainProject = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-               <div
-            className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
-            style={{
-              background: "linear-gradient(to right, #4776e6, #8e54e9)",
-              zIndex: -1,
-              bottom: "-70%",
-              right: "-10%", // shifted left from center (50%)
-              transform: "translate(-50%, -50%)",
-            }}
-          ></div>
+              <div
+                className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
+                style={{
+                  background: "linear-gradient(to right, #4776e6, #8e54e9)",
+                  zIndex: -1,
+                  bottom: "-70%",
+                  right: "-10%", // shifted left from center (50%)
+                  transform: "translate(-50%, -50%)",
+                }}
+              ></div>
               {/* Content */}
               <div className="p-6">
-                <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">{project.title}</h2>
-                <p className="mb-4 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">{project.description}</p>
+                <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
+                  {project.title}
+                </h2>
+                <p className="mb-4 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
+                  {project.description}
+                </p>
 
                 {/* Tech Stack */}
                 <div className="mb-4">
@@ -271,9 +274,7 @@ const MainProject = () => {
                           alt={tech.name}
                           className="h-6 w-6 object-contain"
                         />
-                        <span className="text-sm text-white">
-                          {tech.name}
-                        </span>
+                        <span className="text-sm text-white">{tech.name}</span>
                       </div>
                     ))}
                   </div>
