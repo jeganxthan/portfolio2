@@ -29,13 +29,13 @@ const PlusLine = () => {
 
   return (
     <div className="flex items-center justify-center space-x-2 mt-2">
-      <div className="text-xl font-extralight">+</div>
+      <div className="md:text-xl text-base font-extralight">+</div>
       <div
         ref={lineRef}
         className="bg-black"
         style={{ transform: "scaleY(0.5)", height: "1px", width: "0%" }}
       ></div>
-      <div className="text-xl font-extralight">+</div>
+      <div className="md:text-xl text-base font-extralight">+</div>
     </div>
   );
 };

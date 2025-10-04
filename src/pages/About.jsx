@@ -37,29 +37,33 @@ const About = () => {
     { src: "/skills/android.svg", alt: "android" },
   ];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".about-content",
-        { y: 100, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            end: "top 40%",
-            toggleActions: "play none none none",
-          },
-          stagger: 0.3,
-        }
-      );
-    }, sectionRef);
+useEffect(() => {
+  // Skip animation on mobile devices (screen width < 768px)
+  if (window.innerWidth < 768) return;
 
-    return () => ctx.revert();
-  }, []);
+  const ctx = gsap.context(() => {
+    gsap.fromTo(
+      ".about-content",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "top 40%",
+          toggleActions: "play none none none",
+        },
+        stagger: 0.3,
+      }
+    );
+  }, sectionRef);
+
+  return () => ctx.revert();
+}, []);
+
 
   return (
     <div className="px-6 py-12 md:px-12 md:py-16" id="about">
