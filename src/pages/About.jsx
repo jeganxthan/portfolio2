@@ -37,33 +37,32 @@ const About = () => {
     { src: "/skills/android.svg", alt: "android" },
   ];
 
-useEffect(() => {
-  // Skip animation on mobile devices (screen width < 768px)
-  if (window.innerWidth < 768) return;
+  useEffect(() => {
+    // Skip animation on mobile devices (screen width < 768px)
+    if (window.innerWidth < 768) return;
 
-  const ctx = gsap.context(() => {
-    gsap.fromTo(
-      ".about-content",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "top 40%",
-          toggleActions: "play none none none",
-        },
-        stagger: 0.3,
-      }
-    );
-  }, sectionRef);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".about-content",
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 40%",
+            toggleActions: "play none none none",
+          },
+          stagger: 0.3,
+        }
+      );
+    }, sectionRef);
 
-  return () => ctx.revert();
-}, []);
-
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="px-6 py-12 md:px-12 md:py-16" id="about">
@@ -72,10 +71,21 @@ useEffect(() => {
         className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-18 mt-12"
       >
         <div className="about-content flex flex-col max-w-full md:max-w-lg text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
+          <div
+            className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
+            style={{
+              background: "linear-gradient(to right, #4776e6, #8e54e9)",
+              zIndex: -1,
+              bottom: "-70%",
+              right: "-10%", // shifted left from center (50%)
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
+          <h1 className="text-3xl md:text-4xl font-semibold mb-4 bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
             Jeganathan
           </h1>
-          <p className="text-lg text-gray-600 mb-4">
+
+          <p className="text-lg bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text mb-4">
             I’m a Full Stack Developer with strong expertise in the MERN stack.
             I’m passionate about building scalable web applications and
             delivering efficient solutions. Alongside full-stack development,
@@ -88,7 +98,7 @@ useEffect(() => {
             <a
               href="/jeganathanResume.pdf"
               download
-              className="px-6 py-3 bg-gray-300 uppercase text-black font-semibold rounded-xl shadow-lg hover:bg-gray-600 transition-colors"
+              className="px-6 py-3 uppercase text-black font-semibold rounded-xl shadow-lg transition-all duration-500 ease-in-out bg-gradient-to-r from-white to-purple-800 hover:from-[#8e54e9] hover:to-[#4776e6] hover:bg-gradient-to-r"
             >
               Download Resume
             </a>
@@ -111,8 +121,18 @@ useEffect(() => {
             displayOverlayContent={true}
           />
         </div>
+        <div
+          className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-40"
+          style={{
+            background: "linear-gradient(to right, #00416a, #e4e5e6)",
+            zIndex: -1,
+            right: "10%",
+            top: "37%", // shifted left from center (50%)
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
       </div>
-      <h1 className="text-xl sm:text-sm md:text-xl uppercase text-center mt-10 md:mb-12">
+      <h1 className="text-xl sm:text-sm md:text-xl uppercase text-center mt-10 md:mb-12 bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
         Skills
       </h1>
       <div
@@ -121,14 +141,13 @@ useEffect(() => {
           height: "200px",
           position: "relative",
           overflow: "hidden",
-          filter: "grayscale(100%)",
         }}
       >
         <LogoLoop
           logos={imageLogos}
           speed={100}
           direction="left"
-          logoHeight={74}
+          logoHeight={48}
           gap={80}
           pauseOnHover
           scaleOnHover

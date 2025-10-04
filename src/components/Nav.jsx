@@ -27,8 +27,8 @@ const Nav = () => {
                 menuButtonColor="#fff"
                 openMenuButtonColor="#000000"
                 changeMenuColorOnOpen={true}
-                colors={['#E2DFD2', '#5227FF']}
-                accentColor="#B2BEB5"
+                colors={['#E2DFD2', '#0a021b']}
+                accentColor="#6B21A8"
                 onMenuOpen={() => console.log('Menu opened')}
                 onMenuClose={() => console.log('Menu closed')}
             />

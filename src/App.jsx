@@ -14,9 +14,12 @@ import MainProject from "./pages/MainProject";
 function App() {
   return (
     <Router>
-      <div className="bg-[#FAF9F6] selection:bg-slate-200">
+      <div className="selection:bg-purple-800 selection:text-white">
+        <div className="absolute inset-0 pointer-events-none">
+          <ParticlesJs />
+        </div>
         <ClickSpark
-          sparkColor='#000000'
+          sparkColor="#E6E6FA"
           sparkSize={10}
           sparkRadius={15}
           sparkCount={8}

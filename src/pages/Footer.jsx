@@ -29,9 +29,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-16 px-4 sm:px-6 md:px-12 border-10 border-[#FAF9F6] rounded-[40px] overflow-hidden">
+    <footer className="text-white py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
         {/* About Section */}
+         <div
+        className="absolute rounded-full w-[700px] h-[300px] filter blur-[150px] opacity-30"
+        style={{
+          background: "linear-gradient(to right, #4776e6, #8e54e9)",
+          right: "30%",
+          top: "96%",
+          transform: "translate(-50%, -50%)",
+        }}
+      ></div>
         <div>
           <h3 className="text-lg font-bold mb-3">About Me</h3>
           <p className="text-gray-400 text-sm">

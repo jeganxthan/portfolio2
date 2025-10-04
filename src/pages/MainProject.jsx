@@ -118,6 +118,18 @@ const projects = [
     github: "https://github.com/jeganxthan/resume_bot",
     category: "Backend And Automation",
   },
+  {
+    title: "Resume Bot",
+    image: "/backend/napkin.png",
+    description:
+      "AutoNapkin is an intelligent browser automation project built with Python and Selenium (using undetected-chromedriver) that streamlines the Napkin AI sign-up and verification process. It automatically generates a temporary email, fills out registration details, handles navigation between tabs, retrieves the verification code, and completes the onboarding flow—all while supporting manual CAPTCHA solving when required. Designed for reliability, it uses dynamic wait conditions, iframe handling, and ad-closing logic to ensure smooth execution across different sessions. AutoNapkin demonstrates advanced web automation techniques with strong focus on stability, human-like interactions, and multi-tab coordination using the Brave browser.",
+    techStack: [
+      { name: "Python", img: "/skills/python.svg" },
+      { name: "Selenium", img: "/skills/selenium.svg" },
+    ],
+    github: "https://github.com/jeganxthan/Autonapkin",
+    category: "Backend And Automation",
+  },
 ];
 
 const categories = ["Frontend", "Backend And Automation", "Fullstack"];
@@ -175,17 +187,17 @@ const MainProject = () => {
   }, [activeCategory]);
 
   return (
-    <div className="min-h-screen px-4 sm:px-8 md:px-16 py-12 selection:bg-slate-200 bg-[#FAF9F6]">
+    <div className="min-h-screen px-4 sm:px-8 md:px-16 py-12 ">
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => navigate(-1)}
-          className="p-2 rounded-md hover:bg-gray-200 transition"
+          className="p-2 rounded-md uppercase text-white hover:bg-gray-200 transition"
         >
           <ArrowLeft size={24} />
         </button>
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-6xl font-arimo font-bold text-gray-900"
+          className="text-3xl sm:text-4xl md:text-6xl font-arimo font-bold uppercase bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent"
         >
           Projects
         </h1>
@@ -194,33 +206,34 @@ const MainProject = () => {
       <PlusLine />
 
       {/* Category Buttons */}
-      <div className="flex flex-row gap-3 justify-center items-center text-black mb-10 text-xs md:text-base">
-        {categories.map((category, idx) => (
-          <button
-            key={category}
-            ref={(el) => (buttonsRef.current[idx] = el)}
-            onClick={() => setActiveCategory(category)}
-            className={`px-6 py-3 uppercase font-semibold rounded-xl shadow-lg transition-colors
-              ${
-                activeCategory === category
-                  ? "bg-gray-800 text-white"
-                  : "bg-gray-300 text-black hover:bg-gray-600 hover:text-white"
-              }
-            `}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+     <div className="flex flex-row flex-wrap gap-3 justify-center items-center text-black mb-10 text-xs md:text-base">
+  {categories.map((category, idx) => (
+    <button
+      key={category}
+      ref={(el) => (buttonsRef.current[idx] = el)}
+      onClick={() => setActiveCategory(category)}
+      className={`px-6 py-2 md:py-3 rounded-xl font-semibold uppercase transition-all duration-300 shadow-md
+        ${
+          activeCategory === category
+            ? "text-white bg-gradient-to-r from-[#4776e6] to-[#8e54e9] shadow-lg scale-105"
+            : "bg-gray-300 text-black hover:bg-gray-500 hover:text-white"
+        }
+      `}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
 
       {/* Project List */}
       <div className="max-w-9xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
           {filteredProjects.map((project, index) => (
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              className="rounded-xl shadow-lg overflow-hidden border border-transparent"
             >
               {/* Image */}
               <div className="w-full">
@@ -230,11 +243,20 @@ const MainProject = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-
+               <div
+            className="absolute rounded-full w-[500px] h-[500px] filter blur-[150px] opacity-30"
+            style={{
+              background: "linear-gradient(to right, #4776e6, #8e54e9)",
+              zIndex: -1,
+              bottom: "-70%",
+              right: "-10%", // shifted left from center (50%)
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
               {/* Content */}
               <div className="p-6">
-                <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+                <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">{project.title}</h2>
+                <p className="mb-4 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">{project.description}</p>
 
                 {/* Tech Stack */}
                 <div className="mb-4">
@@ -249,7 +271,7 @@ const MainProject = () => {
                           alt={tech.name}
                           className="h-6 w-6 object-contain"
                         />
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-white">
                           {tech.name}
                         </span>
                       </div>
@@ -263,7 +285,7 @@ const MainProject = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-black transition"
+                    className="flex items-center gap-2 text-white hover:text-black transition"
                   >
                     <Github size={20} />
                   </a>
@@ -272,7 +294,7 @@ const MainProject = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-700 hover:text-black transition"
+                      className="flex items-center gap-2 text-white hover:text-black transition"
                     >
                       <Globe size={20} />
                     </a>

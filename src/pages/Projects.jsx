@@ -97,21 +97,28 @@ const Projects = () => {
 
   return (
     <div id="project">
-      <div className="bg-black text-white py-16 px-4 sm:px-6 md:px-12 border-14 mt-10 mb-10 border-[#FAF9F6] rounded-[40px] overflow-hidden">
+      <div className="text-white py-16 px-4 sm:px-6 md:px-12 mt-10 mb-10">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-arimo font-bold text-left mb-8 sm:mb-10 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-arimo font-bold mb-8 sm:mb-10 md:mb-12 text-left uppercase bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
             Projects
           </h1>
-
+           <div
+        className="absolute rounded-full w-[500px] h-[500px] filter blur-[200px] opacity-40"
+        style={{
+          background: "linear-gradient(to right, #00416a, #e4e5e6)",
+          right: "55%",
+          top: "69%",
+          transform: "translate(-50%, -50%)",
+        }}
+      ></div>
           <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
-            {/* Titles */}
-            <div className="md:w-1/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar space-y-2 sm:space-y-3 md:space-y-4 md:flex flex-col hidden">
+            <div className="md:w-1/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar space-y-2 sm:space-y-3 md:space-y-4 md:flex flex-col hidden ">
               {projectTitles.map((title, index) => (
                 <p
                   key={index}
                   className={`transition-all duration-300 font-semibold cursor-pointer ${
                     activeIndex === index
-                      ? "opacity-100 text-white text-3xl sm:text-4xl md:text-6xl pl-3"
+                      ? "opacity-100 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-6xl pl-3 "
                       : "opacity-40 text-gray-400 text-3xl sm:text-4xl md:text-6xl"
                   }`}
                   onClick={() => {
@@ -162,6 +169,15 @@ const Projects = () => {
               ))}
             </div>
           </div>
+           <div
+        className="absolute rounded-full w-[600px] h-[600px] filter blur-[200px] opacity-40"
+        style={{
+          background: "linear-gradient(to right, #4776e6, #8e54e9)",
+          left: "70%",
+          top: "70%",
+          transform: "translate(-50%, -50%)",
+        }}
+      ></div>
         </div>
 
         {/* Modal */}

@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import ParticlesJs from "../components/ParticlesJs";
 import Nav from "../components/Nav";
+import TiltedCard from "../components/TitledCard";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -68,36 +69,45 @@ const Hero = () => {
 
   return (
     <div className="relative w-screen h-screen " id="home">
-      {/* Preloader */}
       {loading && (
         <div
           ref={preloaderRef}
           className="absolute top-0 left-0 w-full h-full bg-gray-300 z-50"
         />
       )}
-
-      {/* Main content */}
-      {/* 👇 disable clicks on particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        <ParticlesJs />
-      </div>
-
       <div className="absolute top-0 left-0 w-full z-20">
         <Nav />
       </div>
 
-      {/* Hero Content */}
       <div className="absolute z-10 flex flex-col justify-center w-full h-full px-8">
-        {/* Container for "I'm" + Name */}
-        <div className="relative w-full flex justify-center">
-          <p className="text-white text-2xl font-light absolute -top-8">I'm</p>
-          <p className="text-4xl md:text-8xl font-bold text-white uppercase">
+        <div className="relative w-full flex justify-center items-center">
+          <div
+            className="absolute rounded-full w-[300px] h-[300px] filter blur-[200px] opacity-60"
+            style={{
+              background: "linear-gradient(to right, #4776e6, #8e54e9)",
+              zIndex: -1,
+              top: "10%",
+              left: "40%", // shifted left from center (50%)
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
+          <p className="text-4xl md:text-8xl font-bold uppercase bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
             Jeganathan
           </p>
+          <div
+            className="absolute rounded-full w-[300px] h-[300px] filter blur-[200px] opacity-60"
+            style={{
+              background: "linear-gradient(to right, #ffffff, #6B21A8)", // white to purple-800
+              zIndex: -1,
+              top: "100%",
+              right: "20%", // shifted left from center (50%)
+              transform: "translate(-50%, -50%)",
+            }}
+          ></div>
         </div>
 
         {/* Typing effect */}
-        <p className="mt-4 text-xl md:text-3xl text-white uppercase flex items-center justify-center">
+        <p className="mt-4 text-xl md:text-3xl font-semibold uppercase flex items-center justify-center bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
           <span ref={typingRef}></span>
           <span ref={cursorRef} className="ml-1">
             |
