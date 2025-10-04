@@ -48,7 +48,7 @@ useEffect(() => {
 
       <div
         ref={cardRef}
-        className="bg-white mt-16 p-4 md:p-8 rounded-lg shadow-2xl md:max-w-lg w-[330px] mx-auto transform-gpu"
+        className="bg-white mt-16 p-4 md:p-8 rounded-lg shadow-2xl md:max-w-lg w-[330px] md:w-[600px] mx-auto transform-gpu"
       >
         <div className="flex items-center mb-6">
           <img
