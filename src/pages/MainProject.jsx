@@ -119,7 +119,7 @@ const projects = [
     category: "Backend And Automation",
   },
   {
-    title: "Resume Bot",
+    title: "Auto Napkin",
     image: "/backend/napkin.png",
     description:
       "AutoNapkin is an intelligent browser automation project built with Python and Selenium (using undetected-chromedriver) that streamlines the Napkin AI sign-up and verification process. It automatically generates a temporary email, fills out registration details, handles navigation between tabs, retrieves the verification code, and completes the onboarding flow—all while supporting manual CAPTCHA solving when required. Designed for reliability, it uses dynamic wait conditions, iframe handling, and ad-closing logic to ensure smooth execution across different sessions. AutoNapkin demonstrates advanced web automation techniques with strong focus on stability, human-like interactions, and multi-tab coordination using the Brave browser.",
@@ -191,7 +191,7 @@ const MainProject = () => {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => navigate(-1)}
-          className="p-2 rounded-md uppercase text-white hover:bg-gray-200 transition"
+          className="p-2 rounded-md uppercase text-white hover:bg-purple-400 transition"
         >
           <ArrowLeft size={24} />
         </button>
