@@ -85,7 +85,7 @@ const About = () => {
             Jeganathan
           </h1>
 
-          <p className="text-lg bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text mb-4">
+          <p className="text-lg bg-gradient-to-r from-white to-purple-300 text-transparent bg-clip-text mb-4">
             I’m a Full Stack Developer with strong expertise in the MERN stack.
             I’m passionate about building scalable web applications and
             delivering efficient solutions. Alongside full-stack development,

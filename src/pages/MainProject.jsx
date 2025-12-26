@@ -257,7 +257,7 @@ const MainProject = () => {
                 <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
                   {project.title}
                 </h2>
-                <p className="mb-4 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent">
+                <p className="mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
                   {project.description}
                 </p>
 

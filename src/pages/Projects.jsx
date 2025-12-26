@@ -8,7 +8,10 @@ const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [modalIndex, setModalIndex] = useState(null);
   const imageRefs = useRef([]);
+  const titleRefs = useRef([]);
   const containerRefs = useRef([]);
+  const scrollContainerRef = useRef(null);
+  const titlesContainerRef = useRef(null);
 
   const projectTitles = [
     "RBAC",
@@ -29,24 +32,29 @@ const Projects = () => {
   ];
 
   useEffect(() => {
-    const scrollContainer = document.querySelector(".scroll-container");
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
     const handleScroll = () => {
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.top + containerRect.height / 2;
+
       const offsets = imageRefs.current.map((el) => {
+        if (!el) return Infinity;
         const rect = el.getBoundingClientRect();
-        const containerRect = scrollContainer.getBoundingClientRect();
-        return Math.abs(rect.top - containerRect.top);
+        const elementCenter = rect.top + rect.height / 2;
+        return Math.abs(elementCenter - containerCenter);
       });
 
-      const closestIndex = offsets.indexOf(Math.min(...offsets));
-      setActiveIndex(closestIndex);
+      setActiveIndex(offsets.indexOf(Math.min(...offsets)));
     };
 
-    scrollContainer.addEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   useEffect(() => {
     const colors = [];
@@ -112,23 +120,46 @@ const Projects = () => {
             }}
           ></div>
           <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
-            <div className="md:w-1/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar space-y-2 sm:space-y-3 md:space-y-4 md:flex flex-col hidden ">
+            <div
+              ref={titlesContainerRef}
+              className="md:w-2/3 h-[400px] sm:h-[450px] md:h-[500px]
+             overflow-y-scroll no-scrollbar rounded-xl p-2 sm:p-4
+             space-y-4 sm:space-y-5 md:space-y-6 scroll-container"
+            >
+
               {projectTitles.map((title, index) => (
                 <p
                   key={index}
-                  className={`transition-all duration-300 font-semibold cursor-pointer ${
-                    activeIndex === index
-                      ? "opacity-100 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-6xl pl-3 "
-                      : "opacity-40 text-gray-400 text-3xl sm:text-4xl md:text-6xl"
-                  }`}
+                  ref={(el) => (titleRefs.current[index] = el)}
+                  className={`transition-all duration-300 font-semibold cursor-pointer ${activeIndex === index
+                    ? "opacity-100 bg-gradient-to-r from-white to-purple-800 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-6xl pl-3 "
+                    : "opacity-40 text-gray-400 text-3xl sm:text-4xl md:text-6xl"
+                    }`}
                   onClick={() => {
-                    const target = containerRefs.current[index];
-                    if (target) {
-                      target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
-                    }
+                    const imgContainer = scrollContainerRef.current;
+                    const titleContainer = titlesContainerRef.current;
+                    const targetImg = imageRefs.current[index];
+                    const targetTitle = titleRefs.current[index];
+
+                    if (!imgContainer || !targetImg || !titleContainer || !targetTitle) return;
+
+                    // Scroll image container
+                    imgContainer.scrollTo({
+                      top:
+                        targetImg.offsetTop -
+                        imgContainer.clientHeight / 2 +
+                        targetImg.clientHeight / 2,
+                      behavior: "smooth",
+                    });
+
+                    // Scroll titles container
+                    titleContainer.scrollTo({
+                      top:
+                        targetTitle.offsetTop -
+                        titleContainer.clientHeight / 2 +
+                        targetTitle.clientHeight / 2,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   {title}
@@ -137,7 +168,9 @@ const Projects = () => {
             </div>
 
             {/* Images */}
-            <div className="md:w-2/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar rounded-xl p-2 sm:p-4 space-y-4 sm:space-y-5 md:space-y-6 scroll-container">
+            <div
+              ref={scrollContainerRef}
+              className="md:w-2/3 h-[400px] sm:h-[450px] md:h-[500px] overflow-y-scroll no-scrollbar rounded-xl p-2 sm:p-4 space-y-4 sm:space-y-5 md:space-y-6 scroll-container relative">
               {projectImages.map((project, index) => (
                 <div
                   key={index}
@@ -219,7 +252,7 @@ const Projects = () => {
           </div>
         )}
 
-        <div className="mt-10 md:mt-6 flex justify-start md:justify-start">
+        <div className="mt-10 md:mt-6 flex justify-start relative z-50">
           <Link
             to="/main-project"
             className="flex flex-row gap-2 items-center group cursor-pointer text-white hover:text-purple-400 transition-colors"
@@ -230,6 +263,7 @@ const Projects = () => {
             </span>
           </Link>
         </div>
+
       </div>
     </div>
   );

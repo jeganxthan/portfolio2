@@ -64,7 +64,7 @@ const Experience = () => {
             alt="Ignite Skylabs"
             className="w-15 h-18 rounded-full mr-6 object-cover"
           />
-          <p className="md:text-2xl text-xl font-medium bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
+          <p className="md:text-2xl text-xl font-medium text-white">
             Ignite Skylabs
           </p>
         </div>
@@ -82,20 +82,20 @@ const Experience = () => {
           >
             <Globe size={32} />
           </a>
-          <p className="text-sm md:text-base bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text ">
+          <p className="text-sm md:text-base text-white">
             Location: Pondicherry, India • Type: Onsite Internship
           </p>
         </div>
-         <div
-        className="absolute rounded-full w-[300px] h-[300px] filter blur-[150px] opacity-40"
-        style={{
-          background: "linear-gradient(to right, #4776e6, #8e54e9)",
-          zIndex: -1,
-          right: "38%",
-          top: "54%", // shifted left from center (50%)
-          transform: "translate(-50%, -50%)",
-        }}
-      ></div>
+        <div
+          className="absolute rounded-full w-[300px] h-[300px] filter blur-[150px] opacity-40"
+          style={{
+            background: "linear-gradient(to right, #4776e6, #8e54e9)",
+            zIndex: -1,
+            right: "38%",
+            top: "54%", // shifted left from center (50%)
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
       </div>
     </div>
   );

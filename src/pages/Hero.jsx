@@ -91,7 +91,7 @@ const Hero = () => {
               transform: "translate(-50%, -50%)",
             }}
           ></div>
-          <p className="text-4xl md:text-8xl font-bold uppercase bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
+          <p className="text-4xl md:text-6xl font-bold uppercase bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
             Jeganathan
           </p>
           <div
@@ -107,7 +107,7 @@ const Hero = () => {
         </div>
 
         {/* Typing effect */}
-        <p className="mt-4 text-xl md:text-3xl font-semibold uppercase flex items-center justify-center bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
+        <p className="mt-4 text-xl md:text-xl font-semibold uppercase flex items-center justify-center bg-gradient-to-r from-white to-purple-800 text-transparent bg-clip-text">
           <span ref={typingRef}></span>
           <span ref={cursorRef} className="ml-1">
             |
