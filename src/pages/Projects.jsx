@@ -23,12 +23,12 @@ const Projects = () => {
   ];
 
   const projectImages = [
-    { src: "/fullstack/rbac.png", alt: "RBAC" },
-    { src: "/fullstack/gitsh.png", alt: "Git-SH" },
-    { src: "/frontend/portfolio.png", alt: "Gsap Portfolio" },
-    { src: "/fullstack/canvas.png", alt: "Canvas" },
-    { src: "/backend/Load.png", alt: "Loadbalance" },
-    { src: "/backend/resume.png", alt: "Resume" },
+    { src: "/projects/rbac.png", alt: "RBAC" },
+    { src: "/projects/gitsh.png", alt: "Git-SH" },
+    { src: "/projects/portfolio.png", alt: "Gsap Portfolio" },
+    { src: "/projects/canvas.png", alt: "Canvas" },
+    { src: "/projects/Load.png", alt: "Loadbalance" },
+    { src: "/projects/resume.png", alt: "Resume" },
   ];
 
   useEffect(() => {

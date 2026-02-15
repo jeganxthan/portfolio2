@@ -107,7 +107,7 @@ const About = () => {
 
         <div className="about-content relative w-full md:w-72 flex justify-center items-center">
           <TiltedCard
-            imageSrc="/jegan.jpg"
+            imageSrc="/jegan.png"
             altText="jeganathan"
             captionText="Developer"
             containerHeight="300px"
