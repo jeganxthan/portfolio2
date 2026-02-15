@@ -10,7 +10,7 @@ const projects = [
     description:
       "Food Ordering App using dummy JSON data, where users can browse menus, add items to the cart, and place orders. The project simulates a real-world food delivery platform, demonstrating ability to work with APIs, manage state, and build interactive user interfaces.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "Tailwind CSS", img: "/skills/tailwind.svg" },
     ],
     github: "https://github.com/jeganxthan/food-app",
@@ -23,7 +23,7 @@ const projects = [
     description:
       "Netflix clone using React and Tailwind CSS, featuring a fully responsive design that adapts seamlessly to desktops, tablets, and mobile devices. The project replicates Netflix’s modern UI with dynamic layouts, smooth styling, and a user-friendly interface, showcasing your skills in frontend development and responsive web design.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "Tailwind CSS", img: "/skills/tailwind.svg" },
     ],
     github: "https://netflix-ashen-gamma.vercel.app/",
@@ -36,7 +36,7 @@ const projects = [
     description:
       "This portfolio website showcases my projects and skills with heavy GSAP animations and interactive video elements for a dynamic user experience. It includes a fully functional contact form using NodeMailer to send emails directly from the site. Built with React.js and Tailwind CSS, the portfolio demonstrates smooth scroll effects, hover animations, and responsive design, combining modern UI/UX with real-world functionality.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "Tailwind CSS", img: "/skills/tailwind.svg" },
       { name: "GSAP", img: "/skills/gsap.png" },
       { name: "TypeScript", img: "/skills/ts.svg" },
@@ -51,7 +51,7 @@ const projects = [
     description:
       "MERN stack web application that combines multiple advanced features into one platform. The system includes secure authentication with OTP verification, ensuring that only verified users can access the app. It also supports a followers/following system, allowing users to connect with each other like a social network. For real-time communication, you integrated Socket.IO-based chat, enabling instant messaging between users. Additionally, you implemented WebRTC for video/audio calls, giving users the ability to connect beyond text chat. Altogether, this project demonstrates your skills in building secure, scalable, and interactive real-time web applications.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "MongoDB", img: "/skills/MongoDB.svg" },
       { name: "Web socket", img: "/skills/websocket.svg" },
       { name: "TypeScript", img: "/skills/ts.svg" },
@@ -65,7 +65,7 @@ const projects = [
     description:
       "MERN e-commerce website, role-based access control ensures that each type of user has specific permissions. Admins have full authority to manage the platform, including handling users, products, and orders. Sellers are restricted to managing only their own products and viewing orders related to them, giving them control over their shop but not the entire system. Users (customers) have the ability to browse products, add them to the cart, place orders, and manage their personal accounts. This separation of roles maintains security, prevents unauthorized actions, and ensures smooth operation of the platform.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "Tailwind", img: "/skills/tailwind.svg" },
       { name: "Express", img: "/skills/express.svg" },
       { name: "MongoDB", img: "/skills/MongoDB.svg" },
@@ -81,7 +81,7 @@ const projects = [
     description:
       "This project is a real-time collaborative drawing board built with React, TailwindCSS, Socket.IO, Express, and MongoDB. Users can draw on a shared canvas with customizable tools like pencil, eraser, color picker, brush size, undo/redo, and clear options. Every stroke is broadcasted instantly to all connected users via WebSockets, ensuring a smooth, synchronized experience. Drawings are also stored in MongoDB, so when a new user joins, they can see the existing canvas history. This makes the app useful for brainstorming, sketching ideas, online classrooms, or collaborative design sessions.",
     techStack: [
-      { name: "React", img: "/skills/react.svg" },
+      { name: "React", img: "/skills/react.png" },
       { name: "Tailwind", img: "/skills/tailwind.svg" },
       { name: "TypeScript", img: "/skills/ts.svg" },
       { name: "Node", img: "/skills/gsap.png" },

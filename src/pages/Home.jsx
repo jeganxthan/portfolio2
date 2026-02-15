@@ -41,18 +41,16 @@ const services = [
 ];
 
 const skills = [
-  { name: "JavaScript", score: 92, icon: "/skills/js.svg" },
-  { name: "React", score: 90, icon: "/skills/react.svg" },
-  { name: "Node.js", score: 88, icon: "/skills/node.svg" },
-  { name: "MongoDB", score: 84, icon: "/skills/MongoDB.svg" },
-  { name: "Python", score: 82, icon: "/skills/python.svg" },
-  { name: "Tailwind CSS", score: 90, icon: "/skills/tailwind.svg" },
   { name: "Golang", score: 78, icon: "/skills/golang.png" },
-  { name: "Appwrite", score: 74, icon: "/skills/appwrite.png" },
+  { name: "Java", score: 70, icon: "/skills/java.svg" },
+  { name: "React", score: 90, icon: "/skills/react.png" },
+  { name: "Node.js", score: 88, icon: "/skills/node.svg" },
+  { name: "Python", score: 82, icon: "/skills/python.svg" },
+  { name: "TypeScript", score: 70, icon: "/skills/ts.svg" },
 ];
 
 const skillLogos = [
-  { src: "/skills/react.svg", alt: "React" },
+  { src: "/skills/react.png", alt: "React" },
   { src: "/skills/js.svg", alt: "JavaScript" },
   { src: "/skills/node.svg", alt: "Node.js" },
   { src: "/skills/MongoDB.svg", alt: "MongoDB" },
@@ -133,7 +131,7 @@ const projects = [
     title: "LoadBalance",
     image: "/projects/Load.png",
     description:
-      "WebSocket system using Redis Pub/Sub and Nginx load balancing for horizontal scale, following backend patterns I now apply with Golang + Appwrite.",
+      "WebSocket system using Redis Pub/Sub and Nginx load balancing for horizontal scale, following backend patterns.",
     github: "https://github.com/jeganxthan/Loadbalance",
     category: "Backend",
   },

@@ -27,7 +27,7 @@ const About = () => {
     { src: "/skills/node.svg", alt: "Node.js" },
     { src: "/skills/Postman.svg", alt: "Postman" },
     { src: "/skills/python.svg", alt: "Python" },
-    { src: "/skills/react.svg", alt: "React" },
+    { src: "/skills/react.png", alt: "React" },
     { src: "/skills/socket.svg", alt: "Socket.io" },
     { src: "/skills/tailwind.svg", alt: "TailwindCSS" },
     { src: "/skills/ts.svg", alt: "TypeScript" },
