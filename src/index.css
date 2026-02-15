@@ -62,15 +62,27 @@ a {
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 9999;
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(8px);
-  background: rgba(4, 4, 6, 0.7);
+  background: rgba(4, 4, 6, 0.85);
+  isolation: isolate;
 }
 
+.topbar-cta {
+  position: relative;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.topbar-cta {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
 .brand {
   font-size: 1.06rem;
   font-weight: 700;
@@ -109,11 +121,7 @@ a {
   transition: all 0.2s ease;
 }
 
-.topbar-cta {
-  position: relative;
-  z-index: 2;
-  pointer-events: auto;
-}
+
 
 .cta {
   border: 1px solid transparent;
