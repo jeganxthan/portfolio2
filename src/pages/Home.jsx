@@ -41,12 +41,12 @@ const services = [
 ];
 
 const skills = [
-  { name: "Golang", score: 78, icon: "/skills/golang.png" },
+  { name: "Golang", score: 65, icon: "/skills/golang.png" },
   { name: "Java", score: 70, icon: "/skills/java.svg" },
   { name: "React", score: 90, icon: "/skills/react.png" },
   { name: "Node.js", score: 88, icon: "/skills/node.svg" },
-  { name: "Python", score: 82, icon: "/skills/python.svg" },
-  { name: "TypeScript", score: 70, icon: "/skills/ts.svg" },
+  { name: "Python", score: 72, icon: "/skills/python.svg" },
+  { name: "TypeScript", score: 80, icon: "/skills/ts.svg" },
 ];
 
 const skillLogos = [
