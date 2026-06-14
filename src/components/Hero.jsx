@@ -10,15 +10,14 @@ export default function Hero() {
         India
       </div>
 
-      <div className="grid  items-center gap-8 lg:gap-16 flex-1 min-h-0">
-        {/* Left */}
-        <div className="min-w-0 flex flex-col justify-center">
-          <p className="text-[11px] tracking-[0.28em] uppercase text-zinc-400 mb-3">
+      <div className="hero-layout">
+        <div className="hero-main">
+          <p className="eyebrow">
             Software Engineer 
           </p>
 
           <h1
-            className="font-display m-0 leading-[0.78] text-[clamp(80px,11vw,180px)]"
+            className="font-display"
             aria-label="JEGANATHAN"
           >
             {name.map((letter, index) => (
@@ -35,32 +34,18 @@ export default function Hero() {
             ))}
           </h1>
 
-          <p className="font-display text-[clamp(24px,3vw,48px)] text-zinc-400 mt-4">
+          <p className="hero-subtitle font-display">
             Building fast clean digital products.
           </p>
         </div>
 
-        {/* Right */}
-<div
-  className="
-    hidden lg:block
-    absolute
-    right-0
-    top-1/2
-    -translate-y-1/2
-    w-[700px]
-    h-[700px]
-    opacity-100
-    pointer-events-none
-  "
-  aria-hidden="true"
->
-  <IsometricCubes />
-</div>
+        <div className="hero-cubes" aria-hidden="true">
+          <IsometricCubes />
+        </div>
       </div>
 
-      <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-end pt-6">
-        <p className="max-w-[520px] text-sm leading-7 text-zinc-400">
+      <div className="hero-bottom">
+        <p>
           B.Tech graduate and{" "}
           <PointerHighlight color="#22c55e">
             <span>Backend Developer</span>
@@ -72,12 +57,12 @@ export default function Hero() {
           </PointerHighlight>{" "}  interfaces.
         </p>
 
-        <div className="hidden lg:flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-zinc-400">
+        <div className="scroll-cue">
           <span>Scroll</span>
-          <div className="w-px h-14 bg-gradient-to-b from-white/30 to-transparent" />
+          <i />
         </div>
 
-        <div className="flex gap-5 lg:justify-end">
+        <div className="hero-links">
           <a
             href="https://github.com/jeganxthan"
             target="_blank"

@@ -14,6 +14,7 @@ import Nav from './components/Nav';
 import Projects from './components/Projects';
 import LinkHoverCursor from './components/LinkHoverCursor';
 import LinkPreview from './components/LinkPreview';
+import Github from './components/Github';
 
 function App() {
   useEffect(() => {
@@ -70,6 +71,7 @@ function App() {
         <Hero />
         <Marquee />
         <About />
+        <Github />
         <Projects />
         <Experience />
         <Contact />

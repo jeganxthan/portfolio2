@@ -23,6 +23,9 @@ export const skills = [
   'Linux',
 ];
 
+export const GITHUB_USERNAME =
+  "jeganxthan";
+  
 export const projects = [
   {
     num: '01',

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { education } from '../data/portfolio';
+import GitHubSection from './GithubSection';
 
 export default function About() {
   const [asciiArt, setAsciiArt] = useState('');
@@ -17,7 +18,7 @@ export default function About() {
       <div className="about-grid">
         <div>
           <h2 className="font-display ">
-           I develop scalable web and real time systems with a focus on performance and reliability.
+            I develop scalable web and real time systems with a focus on performance and reliability.
           </h2>
           <p className="about-copy">
             I work across React, Node.js, Appwrite, WebSockets, and Golang. At
@@ -34,34 +35,12 @@ export default function About() {
             </a>
           </div>
         </div>
-<aside
-  className="
-    flex
-    items-center
-    justify-center
-    overflow-hidden
-    min-h-[500px]
-    p-6
-  "
-  aria-label="ASCII portrait of Jeganathan"
->
-  <pre
-    className="
-      font-mono
-      text-[6px]
-      md:text-[10px]
-      leading-[0.85]
-      tracking-[-0.08em]
-      text-zinc-200
-      whitespace-pre
-      max-w-full
-      max-h-full
-      select-none
-    "
-  >
-    {asciiArt}
-  </pre>
-</aside>
+        <aside
+          className="ascii-panel"
+          aria-label="ASCII portrait of Jeganathan"
+        >
+          <pre>{asciiArt}</pre>
+        </aside>
       </div>
 
       <div className="about-lower">
