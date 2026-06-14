@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="hero-layout">
         <div className="hero-main">
           <p className="eyebrow">
-            Software Engineer 
+            Software Engineer
           </p>
 
           <h1
@@ -39,8 +39,10 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="hero-cubes" aria-hidden="true">
-          <IsometricCubes />
+        <div className="relative">
+          <div className="h-[700px] w-[700px] absolute left-[-80px] md:top-[-120px] top-[-220px]">
+            <IsometricCubes />
+          </div>
         </div>
       </div>
 
@@ -52,7 +54,7 @@ export default function Hero() {
           </PointerHighlight>{" "}
           passionate about scalable applications, APIs,
           real-time systems, and{" "}
-           <PointerHighlight color="#22c55e">
+          <PointerHighlight color="#22c55e">
             <span>clean product</span>
           </PointerHighlight>{" "}  interfaces.
         </p>
