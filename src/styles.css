@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
 @font-face {
   font-family: 'Clash Display';
@@ -34,7 +35,12 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
 }
 
 body {
@@ -160,6 +166,7 @@ textarea {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--muted);
+  padding-top:60px;
 }
 
 .hero h1 {
@@ -403,26 +410,23 @@ textarea {
 }
 
 .ascii-panel {
-  border: 1px solid var(--border);
-  background: #060606;
-  overflow: hidden;
   min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(18px, 2vw, 32px);
+  padding: 0;
 }
 
 .ascii-panel pre {
   width: fit-content;
   max-width: 100%;
-  font: 700 clamp(4.8px, 0.38vw, 7.2px) / 0.88 'Courier New', monospace;
-  letter-spacing: -0.08em;
+  font: 700 clamp(7px, 0.56vw, 10px) / 0.82 'Courier New', monospace;
+  letter-spacing: -0.1em;
   white-space: pre;
   text-align: left;
   color: #f4f4f4;
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.16);
-  transform: scale(0.96);
+  transform: scale(1.08);
   transform-origin: center;
 }
 
