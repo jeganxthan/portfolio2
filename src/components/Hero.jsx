@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="h-[700px] w-[700px] absolute left-[-80px] md:top-[-120px] top-[-220px]">
+          <div className="h-[900px] w-[900px] absolute left-[-150px] md:top-[-120px] top-[-220px]">
             <IsometricCubes />
           </div>
         </div>
