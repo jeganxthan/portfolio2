@@ -49,7 +49,7 @@ export default function About() {
             ['10+', 'Projects'],
             ['20K+', 'Users supported'],
             ['MERN', 'Core stack'],
-            ['Golang, Rust', 'Current focus'],
+            ['Java', 'Current focus'],
           ].map(([value, label]) => (
             <article key={label}>
               <strong className="font-display">{value}</strong>

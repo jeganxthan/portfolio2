@@ -3,7 +3,7 @@ export default function Experience() {
     <section id="experience" className="section experience pg">
       <p className="section-kicker">Experience</p>
       <article>
-        <span>Aug 2025 - June 2026</span>
+        <span>May 2025 - June 2026</span>
         <div>
           <h2 className="font-display">Software Engineer Intern</h2>
 
