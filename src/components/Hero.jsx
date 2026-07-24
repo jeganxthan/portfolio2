@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="h-[900px] w-[900px] absolute left-[-150px] md:top-[-120px] top-[-220px]">
+          <div className="h-[600px] w-[600px] md:h-[2000px] md:w-[2000px] absolute right-[-300px] md:left-[-600px] md:top-[-400px] top-[-220px]">
             <IsometricCubes />
           </div>
         </div>
@@ -50,13 +50,14 @@ export default function Hero() {
         <p>
           B.Tech graduate and{" "}
           <PointerHighlight color="#22c55e">
-            <span>Backend Developer</span>
+            <span>Backend Developer & AI Engineer</span>
           </PointerHighlight>{" "}
-          passionate about scalable applications, APIs,
-          real-time systems, and{" "}
+          passionate about building scalable applications, intelligent AI-powered solutions,
+          robust APIs, real-time systems, and{" "}
           <PointerHighlight color="#22c55e">
-            <span>clean product</span>
-          </PointerHighlight>{" "}  interfaces.
+            <span>clean, user-centric interfaces</span>
+          </PointerHighlight>
+          .
         </p>
 
         <div className="scroll-cue">
