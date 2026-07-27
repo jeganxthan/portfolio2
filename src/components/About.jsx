@@ -21,7 +21,7 @@ export default function About() {
             I develop scalable web and real time systems with a focus on performance and reliability.
           </h2>
           <p className="about-copy">
-            I work across React, Node.js, Appwrite, WebSockets, and Golang. At
+            I work across React, Node.js, Appwrite, and WebSockets. At
             Ridemap, I built real-time geofence notification systems, migrated
             Firebase services to Appwrite, and helped support live transport
             flows for 20,000+ active users.
