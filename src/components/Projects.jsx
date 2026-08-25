@@ -1,6 +1,19 @@
 import { useMemo, useState } from 'react';
 import { projects } from '../data/portfolio';
 
+const imageDimensions = {
+  '/projects/ridemap365.jpeg': { width: 1080, height: 1080 },
+  '/projects/jsip.png': { width: 3072, height: 1920 },
+  '/projects/printa4.png': { width: 1920, height: 1199 },
+  '/projects/rbac.png': { width: 1920, height: 1200 },
+  '/projects/gitsh.png': { width: 1920, height: 1052 },
+  '/projects/Load.png': { width: 3780, height: 1890 },
+  '/projects/canvas.png': { width: 1920, height: 1200 },
+  '/projects/resume.png': { width: 3780, height: 1890 },
+  '/projects/portfolio.png': { width: 1920, height: 1087 },
+  '/projects/namaste.png': { width: 1920, height: 1200 },
+};
+
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
   const visibleProjects = useMemo(
@@ -26,11 +39,18 @@ export default function Projects() {
             className="project-card"
             href={project.href || '#contact'}
             target={project.href ? '_blank' : undefined}
-            rel={project.href ? 'noreferrer' : undefined}
+            rel={project.href ? 'noopener noreferrer' : undefined}
             key={project.title}
           >
             <span>{project.num}</span>
-            <img src={project.image} alt={project.title} loading="lazy" />
+            <img
+              src={project.image}
+              alt={`${project.title} project screenshot`}
+              width={imageDimensions[project.image]?.width}
+              height={imageDimensions[project.image]?.height}
+              loading="lazy"
+              decoding="async"
+            />
             <div>
               <h3 className="font-display">{project.title}</h3>
               <p>{project.desc}</p>

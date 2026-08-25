@@ -69,7 +69,7 @@ export default function Hero() {
           <a
             href="https://github.com/jeganxthan"
             target="_blank"
-            rel="noreferrer"
+            rel="me noopener noreferrer"
             className="text-xs text-zinc-400 hover:text-white"
           >
             GitHub
@@ -78,7 +78,7 @@ export default function Hero() {
           <a
             href="https://www.linkedin.com/in/jeganathan-i-430869258"
             target="_blank"
-            rel="noreferrer"
+            rel="me noopener noreferrer"
             className="text-xs text-zinc-400 hover:text-white"
           >
             LinkedIn
