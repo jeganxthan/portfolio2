@@ -1,5 +1,7 @@
+import type { MouseEvent } from 'react';
+
 export default function Footer() {
-  const scrollToTop = (event) => {
+  const scrollToTop = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
     window.scrollTo({

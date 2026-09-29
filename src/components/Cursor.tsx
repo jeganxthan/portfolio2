@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
 export default function Cursor() {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
+  const dotRef = useRef<HTMLSpanElement>(null);
+  const ringRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const move = (event) => {
+    const move = (event: PointerEvent) => {
       const { clientX, clientY } = event;
       dotRef.current?.style.setProperty('--x', `${clientX}px`);
       dotRef.current?.style.setProperty('--y', `${clientY}px`);

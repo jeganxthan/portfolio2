@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { education } from '../data/portfolio';
-import GitHubSection from './GithubSection';
 
 export default function About() {
   const [asciiArt, setAsciiArt] = useState('');
@@ -48,8 +47,8 @@ export default function About() {
           {[
             ['10+', 'Projects'],
             ['20K+', 'Users supported'],
-            ['MERN', 'Core stack'],
-            ['Python & Rust', 'Current focus'],
+            ['Typescript', 'Core stack'],
+            ['Rust', 'Current focus'],
           ].map(([value, label]) => (
             <article key={label}>
               <strong className="font-display">{value}</strong>

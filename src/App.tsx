@@ -27,7 +27,7 @@ function App() {
 
     lenis.on('scroll', () => ScrollTrigger.update());
 
-    const tick = (time) => lenis.raf(time * 1000);
+    const tick = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
 
@@ -40,7 +40,8 @@ function App() {
         ease: 'power3.out',
       });
 
-      gsap.utils.toArray('.section').forEach((section) => {
+      // #projects animates itself via the <Reveal> component (staggered children)
+      gsap.utils.toArray<HTMLElement>('.section:not(#projects)').forEach((section) => {
         gsap.from(section, {
           y: 36,
           autoAlpha: 0,

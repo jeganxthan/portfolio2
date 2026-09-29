@@ -2,10 +2,16 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import type { ReactNode, SVGProps } from "react";
+
+interface PointerHighlightProps {
+  children: ReactNode;
+  color?: string;
+}
 
 const MotionSpan = motion.span;
 
-const PointerIcon = (props) => (
+const PointerIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     stroke="currentColor"
     fill="currentColor"
@@ -25,8 +31,8 @@ const PointerIcon = (props) => (
 export default function PointerHighlight({
   children,
   color = "var(--accent)",
-}) {
-  const containerRef = useRef(null);
+}: PointerHighlightProps) {
+  const containerRef = useRef<HTMLSpanElement>(null);
   const [dimensions, setDimensions] = useState({
     width: 0,
     height: 0,
@@ -46,6 +52,8 @@ export default function PointerHighlight({
     };
 
     measure();
+
+    if (typeof ResizeObserver === "undefined") return;
 
     const ro = new ResizeObserver(measure);
 

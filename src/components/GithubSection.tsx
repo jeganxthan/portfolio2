@@ -121,7 +121,7 @@ export default function GitHubSection() {
         style={{
           width: "65%",
           margin: "0 auto",
-          background: "#0f0f0f",
+          background: "var(--surface)",
           border: "1px solid var(--border)",
           borderRadius: 16,
           padding: "28px 32px 24px",

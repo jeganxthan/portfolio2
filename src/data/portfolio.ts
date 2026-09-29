@@ -10,22 +10,32 @@ export const skills = [
   'MongoDB',
   'PostgreSQL',
   'Redis',
-  'Java',
-  'Python',
-  'FastAPI',
   'React Native',
   'Appwrite',
   'Firebase',
   'Docker',
-  'Nginx',
   'WebSocket',
   'Linux',
 ];
 
-export const GITHUB_USERNAME =
-  "jeganxthan";
-  
-export const projects = [
+export interface Project {
+  num: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  image: string;
+  href?: string;
+}
+
+export interface Education {
+  school: string;
+  course: string;
+  date: string;
+}
+
+export const GITHUB_USERNAME = "jeganxthan";
+
+export const projects: Project[] = [
   {
     num: '01',
     title: 'Ridemap',
@@ -109,7 +119,7 @@ export const projects = [
   },
 ];
 
-export const education = {
+export const education: Education = {
   school: 'Manakula Vinayagar Institute of Technology, Puducherry',
   course: 'B.Tech in AI & ML',
   date: 'July 2026',

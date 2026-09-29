@@ -3,20 +3,22 @@
 import { useEffect, useRef } from "react";
 
 export default function LinkHoverCursor() {
-  const circleRef = useRef(null);
+  const circleRef = useRef<HTMLDivElement>(null);
   const visible = useRef(false);
   const pos = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
-  const rafId = useRef(null);
+  const rafId = useRef<number | null>(null);
 
   useEffect(() => {
     const circle = circleRef.current;
     if (!circle) return;
 
-    if (window.matchMedia("(hover: none), (pointer: coarse)").matches)
+    if (typeof window.matchMedia === "function" &&
+      window.matchMedia("(hover: none), (pointer: coarse)").matches)
       return;
 
-    const lerp = (a, b, t) => a + (b - a) * t;
+    const lerp = (a: number, b: number, t: number) =>
+      a + (b - a) * t;
     const SIZE = 64;
 
     const animate = () => {
@@ -43,7 +45,7 @@ export default function LinkHoverCursor() {
 
     rafId.current = requestAnimationFrame(animate);
 
-    const onMouseMove = (e) => {
+    const onMouseMove = (e: globalThis.MouseEvent) => {
       pos.current = {
         x: e.clientX,
         y: e.clientY,
@@ -52,8 +54,8 @@ export default function LinkHoverCursor() {
 
     window.addEventListener("mousemove", onMouseMove);
 
-    const isExternalLink = (el) => {
-      if (el.tagName !== "A") return false;
+    const isExternalLink = (el: HTMLElement) => {
+      if (!(el instanceof HTMLAnchorElement)) return false;
 
       const href = el.href;
 
@@ -72,7 +74,7 @@ export default function LinkHoverCursor() {
       }
     };
 
-    const hasOwnBackground = (el) => {
+    const hasOwnBackground = (el: HTMLElement) => {
       const bg = getComputedStyle(el).backgroundColor;
 
       return (
@@ -81,8 +83,8 @@ export default function LinkHoverCursor() {
       );
     };
 
-    const showCursor = (e) => {
-      const el = e.currentTarget;
+    const showCursor = (e: Event) => {
+      const el = e.currentTarget as HTMLElement;
 
       if (isExternalLink(el)) {
         visible.current = true;
@@ -98,29 +100,29 @@ export default function LinkHoverCursor() {
       }
     };
 
-    const hideCursor = (e) => {
+    const hideCursor = (e: Event) => {
       visible.current = false;
       circle.style.opacity = "0";
 
-      const el = e.currentTarget;
+      const el = e.currentTarget as HTMLElement;
 
       el.style.fontWeight = "";
       el.style.color = "";
     };
 
-    const add = (el) => {
+    const add = (el: HTMLElement) => {
       el.addEventListener("mouseenter", showCursor);
       el.addEventListener("mouseleave", hideCursor);
     };
 
-    const remove = (el) => {
+    const remove = (el: HTMLElement) => {
       el.removeEventListener("mouseenter", showCursor);
       el.removeEventListener("mouseleave", hideCursor);
     };
 
     const attach = () =>
       document
-        .querySelectorAll("a, button")
+        .querySelectorAll<HTMLElement>("a, button")
         .forEach((el) => {
           remove(el);
           add(el);
@@ -128,9 +130,12 @@ export default function LinkHoverCursor() {
 
     attach();
 
-    const observer = new MutationObserver(attach);
+    const observer =
+      typeof MutationObserver === "undefined"
+        ? null
+        : new MutationObserver(attach);
 
-    observer.observe(document.body, {
+    observer?.observe(document.body, {
       childList: true,
       subtree: true,
     });
@@ -144,10 +149,10 @@ export default function LinkHoverCursor() {
         onMouseMove
       );
 
-      observer.disconnect();
+      observer?.disconnect();
 
       document
-        .querySelectorAll("a, button")
+        .querySelectorAll<HTMLElement>("a, button")
         .forEach(remove);
     };
   }, []);
@@ -164,7 +169,6 @@ export default function LinkHoverCursor() {
         height: 64,
         borderRadius: "50%",
         background: "var(--accent)",
-        mixBlendMode: "difference",
         pointerEvents: "none",
         zIndex: 9990,
         opacity: 0,

@@ -1,15 +1,15 @@
 import IsometricCubes from "./IsometricCubes";
 import PointerHighlight from "./PointerHighlight";
-
+import PondBackground from "./background/Bg";
 export default function Hero() {
   const name = "JEGANATHAN".split("");
 
   return (
     <section id="home" className="hero pg">
+      <PondBackground />
       <div className="hero-location">
         India
       </div>
-
       <div className="hero-layout">
         <div className="hero-main">
           <p className="eyebrow">
@@ -38,7 +38,6 @@ export default function Hero() {
             Building fast clean digital products.
           </p>
         </div>
-
         <div className="relative">
           <div className="h-[600px] w-[600px] md:h-[2000px] md:w-[2000px] absolute right-[-300px] md:left-[-600px] md:top-[-400px] top-[-220px]">
             <IsometricCubes />
@@ -49,12 +48,12 @@ export default function Hero() {
       <div className="hero-bottom">
         <p>
           B.Tech graduate and{" "}
-          <PointerHighlight color="#22c55e">
+          <PointerHighlight color="var(--accent)">
             <span>Backend Developer & AI Engineer</span>
           </PointerHighlight>{" "}
           passionate about building scalable applications, intelligent AI-powered solutions,
           robust APIs, real-time systems, and{" "}
-          <PointerHighlight color="#22c55e">
+          <PointerHighlight color="var(--accent)">
             <span>clean, user-centric interfaces</span>
           </PointerHighlight>
           .

@@ -1,5 +1,10 @@
+import type { MouseEvent } from 'react';
+
 export default function Nav() {
-  const scrollToSection = (event, id) => {
+  const scrollToSection = (
+    event: MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     event.preventDefault();
 
     if (id === 'home') {

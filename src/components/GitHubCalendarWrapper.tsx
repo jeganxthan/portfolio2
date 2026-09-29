@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import type { ComponentType } from "react";
 import { GITHUB_USERNAME } from "../data/portfolio";
 
 const theme = {
@@ -22,7 +23,23 @@ const WEEKS = 53;
 const LABEL_WIDTH = 30;
 const FEATURED_CONTRIBUTIONS = 813;
 
-function computeBlockParams(containerWidth) {
+interface BlockParams {
+  blockSize: number;
+  blockMargin: number;
+}
+
+interface CalendarDay {
+  count: number;
+  level: number;
+}
+
+interface GitHubCalendarWrapperProps {
+  year: number;
+}
+
+type CalendarComponent = ComponentType<Record<string, unknown>>;
+
+function computeBlockParams(containerWidth: number): BlockParams {
   const blockMargin =
     containerWidth < 500
       ? 2
@@ -46,13 +63,13 @@ function computeBlockParams(containerWidth) {
 
 export default function GitHubCalendarWrapper({
   year,
-}) {
-  const [Cal, setCal] = useState(null);
+}: GitHubCalendarWrapperProps) {
+  const [Cal, setCal] = useState<CalendarComponent | null>(null);
 
-  const wrapRef = useRef(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   const [blockParams, setBlockParams] =
-    useState({
+    useState<BlockParams>({
       blockSize: 13,
       blockMargin: 4,
     });
@@ -61,11 +78,12 @@ export default function GitHubCalendarWrapper({
     import("react-github-calendar").then(
       (mod) => {
         const Component =
-          mod.GitHubCalendar ||
-          mod.default ||
-          mod;
+          mod.GitHubCalendar ??
+          (mod as unknown as { default?: CalendarComponent }).default;
 
-        setCal(() => Component);
+        if (!Component) return;
+
+        setCal(() => Component as unknown as CalendarComponent);
       }
     );
   }, []);
@@ -75,11 +93,16 @@ export default function GitHubCalendarWrapper({
 
     if (!el) return;
 
-    const update = (width) => {
+    const update = (width: number) => {
       setBlockParams(
         computeBlockParams(width)
       );
     };
+
+    if (typeof ResizeObserver === "undefined") {
+      update(el.offsetWidth);
+      return;
+    }
 
     const ro = new ResizeObserver(
       (entries) => {
@@ -97,7 +120,7 @@ export default function GitHubCalendarWrapper({
   const shouldFeatureLastYear =
     year === new Date().getFullYear();
 
-  const transformFeaturedData = (data) => {
+  const transformFeaturedData = (data: CalendarDay[]): CalendarDay[] => {
     if (!shouldFeatureLastYear) return data;
 
     const currentTotal = data.reduce(
@@ -109,7 +132,7 @@ export default function GitHubCalendarWrapper({
       return data;
     }
 
-    const boosted = data.map((day) => ({
+    const boosted: CalendarDay[] = data.map((day) => ({
       ...day,
       count: day.count,
     }));
@@ -118,7 +141,7 @@ export default function GitHubCalendarWrapper({
       FEATURED_CONTRIBUTIONS - currentTotal;
 
     const activeIndexes = boosted
-      .map((_, index) => index)
+      .map((_day, index) => index)
       .filter(
         (index) =>
           ((index * 7 + 3) % 10 < 7 ||
@@ -170,9 +193,9 @@ export default function GitHubCalendarWrapper({
         >
           <span
             style={{
-              fontSize: 12,
-              color: "var(--muted)",
-              letterSpacing: ".08em",
+            fontSize: 12,
+            color: "var(--muted)",
+            letterSpacing: ".08em",
             }}
           >
             Loading contributions...

@@ -2,7 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const INITIAL = {
+interface PreviewState {
+  visible: boolean;
+  x: number;
+  y: number;
+  href: string;
+  domain: string;
+  imgSrc: string;
+}
+
+const INITIAL: PreviewState = {
   visible: false,
   x: 0,
   y: 0,
@@ -14,7 +23,7 @@ const INITIAL = {
 const CARD_W = 280;
 const CARD_MARGIN = 12;
 
-function clampX(x) {
+function clampX(x: number) {
   const half = CARD_W / 2 + CARD_MARGIN;
 
   return Math.min(
@@ -23,7 +32,7 @@ function clampX(x) {
   );
 }
 
-function getDomain(href) {
+function getDomain(href: string) {
   try {
     return new URL(href).hostname.replace("www.", "");
   } catch {
@@ -31,7 +40,7 @@ function getDomain(href) {
   }
 }
 
-function getMicrolinkSrc(url) {
+function getMicrolinkSrc(url: string) {
   const params = new URLSearchParams({
     url,
     screenshot: "true",
@@ -51,10 +60,10 @@ export default function LinkPreview() {
   const [state, setState] = useState(INITIAL);
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const isExternal = (href) => {
+    const isExternal = (href: string) => {
       try {
         return (
           new URL(href).origin !==
@@ -65,8 +74,8 @@ export default function LinkPreview() {
       }
     };
 
-    const onEnter = (e) => {
-      const anchor = e.currentTarget;
+    const onEnter = (e: Event) => {
+      const anchor = e.currentTarget as HTMLAnchorElement;
 
       const href = anchor.href;
 
@@ -87,8 +96,8 @@ export default function LinkPreview() {
       });
     };
 
-    const onMove = (e) => {
-      const anchor = e.currentTarget;
+    const onMove = (e: MouseEvent) => {
+      const anchor = e.currentTarget as HTMLAnchorElement;
 
       if (
         !anchor.href ||
@@ -111,7 +120,7 @@ export default function LinkPreview() {
 
     const attach = () => {
       document
-        .querySelectorAll("a[href]")
+        .querySelectorAll<HTMLAnchorElement>("a[href]")
         .forEach((anchor) => {
           if (attached.has(anchor)) return;
 
@@ -140,20 +149,21 @@ export default function LinkPreview() {
 
     attach();
 
-    const observer = new MutationObserver(
-      attach
-    );
+    const observer =
+      typeof MutationObserver === "undefined"
+        ? null
+        : new MutationObserver(attach);
 
-    observer.observe(document.body, {
+    observer?.observe(document.body, {
       childList: true,
       subtree: true,
     });
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
 
       document
-        .querySelectorAll("a[href]")
+        .querySelectorAll<HTMLAnchorElement>("a[href]")
         .forEach((a) => {
           a.removeEventListener(
             "mouseenter",
@@ -188,7 +198,7 @@ export default function LinkPreview() {
         pointerEvents: "none",
         zIndex: 9400,
         width: 280,
-        background: "#141414",
+        background: "var(--surface)",
         border: "1px solid var(--border)",
         borderRadius: 12,
         overflow: "hidden",
@@ -202,7 +212,7 @@ export default function LinkPreview() {
       {/* Browser Bar */}
       <div
         style={{
-          background: "#1a1a1a",
+          background: "var(--surface-2)",
           borderBottom:
             "1px solid var(--border)",
           padding: "9px 12px",
@@ -270,7 +280,7 @@ export default function LinkPreview() {
         style={{
           width: "100%",
           height: 160,
-          background: "#0d0d0d",
+          background: "var(--surface-2)",
           position: "relative",
         }}
       >

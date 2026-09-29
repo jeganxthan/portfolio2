@@ -11,7 +11,7 @@ export default function Experience() {
             href="https://ridemap.in"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#22c55e", fontWeight: "700" }}
+            style={{ color: "var(--accent)", fontWeight: "700" }}
           >
             Ridemap
           </a>

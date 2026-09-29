@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function IsometricCubes() {
-  const mountRef = useRef(null);
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -32,10 +32,16 @@ export default function IsometricCubes() {
     camera.position.set(5, 5, 5);
     camera.lookAt(0, 0, 0);
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-    });
+    let renderer: THREE.WebGLRenderer;
+
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+      });
+    } catch {
+      return;
+    }
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(w, h);
@@ -45,7 +51,7 @@ export default function IsometricCubes() {
 
     // Wire material
     const wireMat = new THREE.LineBasicMaterial({
-      color: 0x2a2a2a,
+      color: 0xf0eee8,
       transparent: true,
       opacity: 0.85,
     });
@@ -59,7 +65,10 @@ export default function IsometricCubes() {
     });
 
     // Build a wireframe cube group
-    function makeCube(size, position) {
+    function makeCube(
+      size: number,
+      position: [number, number, number]
+    ) {
       const geo = new THREE.BoxGeometry(size, size, size);
 
       const edges = new THREE.EdgesGeometry(geo);
@@ -104,7 +113,7 @@ export default function IsometricCubes() {
     let curRX = 0;
     let curRY = 0;
 
-    const onMouse = (e) => {
+    const onMouse = (e: MouseEvent) => {
       targetRX = (e.clientY / window.innerHeight - 0.5) * 0.3;
       targetRY = (e.clientX / window.innerWidth - 0.5) * 0.3;
     };
@@ -128,7 +137,7 @@ export default function IsometricCubes() {
 
     // Animation loop
     let frame = 0;
-    let rafId;
+    let rafId = 0;
 
     const animate = () => {
       rafId = requestAnimationFrame(animate);
