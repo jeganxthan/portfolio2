@@ -1,16 +1,7 @@
-import { useEffect, useState } from 'react';
 import { education } from '../data/portfolio';
+import RipplePortrait from './RipplePortrait';
 
 export default function About() {
-  const [asciiArt, setAsciiArt] = useState('');
-
-  useEffect(() => {
-    fetch('/ascii-art.txt')
-      .then((response) => response.text())
-      .then(setAsciiArt)
-      .catch(() => setAsciiArt('JEGANATHAN I\\nFULL STACK DEVELOPER'));
-  }, []);
-
   return (
     <section id="about" className="section about pg">
       <p className="section-kicker">About</p>
@@ -20,7 +11,7 @@ export default function About() {
             I develop scalable web and real time systems with a focus on performance and reliability.
           </h2>
           <p className="about-copy">
-            I work across React, Node.js, Appwrite, and WebSockets. At
+            I work across React, Rust, Appwrite, and WebSockets. At
             Ridemap, I built real-time geofence notification systems, migrated
             Firebase services to Appwrite, and helped support live transport
             flows for 20,000+ active users.
@@ -34,11 +25,8 @@ export default function About() {
             </a>
           </div>
         </div>
-        <aside
-          className="ascii-panel"
-          aria-label="ASCII portrait of Jeganathan"
-        >
-          <pre>{asciiArt}</pre>
+        <aside className="ascii-panel">
+          <RipplePortrait />
         </aside>
       </div>
 
